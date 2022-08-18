@@ -22,6 +22,8 @@ document.getElementById("btn-deposit").addEventListener("click", function () {
     previousBalanceTotal + parseFloat(newDipositAmount);
   balanceTotalElement.innerText = currentBalanceTotal;
 
+  // error handling
+
   if (newDipositAmount < 1) {
     alert("please enter a valid number");
   }
@@ -50,6 +52,9 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   const currentBalanceTotal =
     previousBalanceTotal - parseFloat(newWithdrawAmount);
   balanceTotalElement.innerText = currentBalanceTotal;
+
+  // error handling
+
   if (newWithdrawAmount > currentBalanceTotal) {
     alert("insufficiant balance");
   }
