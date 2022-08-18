@@ -1,3 +1,5 @@
+// deposit and total part
+
 document.getElementById("btn-deposit").addEventListener("click", function () {
   // deposit calculation
   const dipositField = document.getElementById("diposit-input");
@@ -19,7 +21,13 @@ document.getElementById("btn-deposit").addEventListener("click", function () {
   const currentBalanceTotal =
     previousBalanceTotal + parseFloat(newDipositAmount);
   balanceTotalElement.innerText = currentBalanceTotal;
+
+  if (newDipositAmount < 1) {
+    alert("please enter a valid number");
+  }
 });
+
+// withdraw and total part
 
 document.getElementById("btn-withdraw").addEventListener("click", function () {
   // withdraw calculation
@@ -33,7 +41,7 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   withdrawElement.innerText = currentWithdrawTotal;
   withdrawField.value = "";
 
-  //   total calculation after deposit
+  //   total calculation after withdraw
 
   const balanceTotalElement = document.getElementById("balance");
   const previousBalanceTotalString = balanceTotalElement.innerText;
@@ -42,4 +50,10 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   const currentBalanceTotal =
     previousBalanceTotal - parseFloat(newWithdrawAmount);
   balanceTotalElement.innerText = currentBalanceTotal;
+  if (newWithdrawAmount > currentBalanceTotal) {
+    alert("insufficiant balance");
+  }
+  if (newWithdrawAmount < 1) {
+    alert("please enter a valid number");
+  }
 });
